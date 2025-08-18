@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entry-level cybersecurity portfolio showcasing foundational skills, certifications, and projects in ethical hacking and network security.">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Cybersecurity Portfolio - Fresher">
+    <meta property="og:description" content="Explore my journey as a cybersecurity enthusiast with certifications and projects in penetration testing and network defense.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.webp?text=Cybersecurity+Portfolio">
+    <meta property="og:url" content="https://cyberfresher.io">
+    <meta property="og:type" content="website">
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Cybersecurity Fresher",
+        "jobTitle": "Aspiring Cybersecurity Analyst",
+        "url": "https://cyberfresher.io",
+        "sameAs": [
+            "https://linkedin.com/in/cyberfresher",
+            "https://github.com/cyberfresher",
+            "https://twitter.com/cyberfresher"
+        ]
+    }
+    </script>
+    <title>Cybersecurity Portfolio - Fresher</title>
+    <!-- Google Fonts for Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <!-- AOS for fade-in animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS for form submission -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding-top: 100px;
+        }
+        .neon-green {
+            color: #00ff00;
+            text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+        }
+        .neon-cyan {
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+        }
+        .bg-neon-green {
+            background: linear-gradient(145deg, rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0.7));
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .bg-neon-cyan {
+            background: linear-gradient(145deg, rgba(0, 255, 255, 0.3), rgba(0, 255, 255, 0.7));
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .liquid-glass {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .liquid-glass:hover {
+            box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        .box-container {
+            background: linear-gradient(145deg, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.7));
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            margin: 1rem auto;
+            max-width: 1200px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+        .navbar-container {
+            background: linear-gradient(145deg, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.7));
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .nav-link {
+            background: linear-gradient(145deg, rgba(31, 41, 55, 0.8), rgba(31, 41, 55, 0.6));
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            box-shadow: 0 6px 15px rgba(0, 255, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+        .logo-icon {
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        .logo-icon:hover {
+            transform: scale(1.2);
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        }
+        .hacker-icon-container {
+            position: relative;
+            display: inline-block;
+            margin: 2rem 0;
+        }
+        .hacker-icon {
+            font-size: 6rem;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        .cycle-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border: 2px solid #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+            animation: rotate 10s infinite linear;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        .avatar-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+            border: 3px solid #00ff00;
+            box-shadow: 0 0 10px #00ff00;
+            animation: glow 2s infinite ease-in-out;
+        }
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px #00ff00; }
+            50% { box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00; }
+            100% { box-shadow: 0 0 10px #00ff00; }
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(145deg, rgba(0, 255, 0, 0.3), rgba(0, 255, 0, 0.7));
+            color: #000;
+            padding: 0.75rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: none;
+            z-index: 50;
+        }
+        #back-to-top:hover {
+            box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+        #hamburger {
+            display: none;
+        }
+        @media (max-width: 767px) {
+            .navbar-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(145deg, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.7));
+                padding: 1rem;
+                border-radius: 0 0 12px 12px;
+                box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .navbar-menu.active {
+                display: flex;
+            }
+            #hamburger {
+                display: block;
+                cursor: pointer;
+            }
+            .hero-about-container {
+                flex-direction: column;
+            }
+            .certificate-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .certificate-carousel {
+                flex-direction: column;
+                align-items: center;
+            }
+            .certificate-item.active-certificate {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        /* Certificate Section Styles */
+        .certificate-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .certificate-button {
+            background: linear-gradient(145deg, rgba(31, 41, 55, 0.8), rgba(31, 41, 55, 0.6));
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+            color: #00ff00;
+            font-weight: bold;
+        }
+        .certificate-button:hover {
+            box-shadow: 0 6px 15px rgba(0, 255, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        .certificate-list {
+            display: none;
+            margin-top: 1rem;
+            min-height: 200px;
+            overflow: hidden;
+        }
+        .certificate-list.active {
+            display: block;
+        }
+        .certificate-carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 400px;
+        }
+        .certificate-item {
+            background: linear-gradient(145deg, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.7));
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: none;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+        .certificate-item.active-certificate {
+            display: block;
+        }
+        .certificate-arrow {
+            background: linear-gradient(145deg, rgba(31, 41, 55, 0.8), rgba(31, 41, 55, 0.6));
+            border-radius: 50%;
+            padding: 0.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            color: #00ff00;
+            font-size: 1.5rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .certificate-arrow:hover {
+            box-shadow: 0 6px 15px rgba(0, 255, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .certificate-arrow.left {
+            left: 1rem;
+        }
+        .certificate-arrow.right {
+            right: 1rem;
+        }
+
+        /* About Social Links */
+        .about-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 6rem;
+        }
+        .about-social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .about-social-link i {
+            font-size: 1.5rem;
+            color: #00ffff;
+        }
+        .about-social-link:hover i {
+            transform: scale(1.2);
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        } 
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full z-40">
+        <div class="navbar-container flex justify-between items-center">
+            <i class="fas fa-skull-crossbones logo-icon neon-cyan" aria-label="Cybersecurity Portfolio Logo"></i>
+            <button id="hamburger" class="text-2xl neon-green md:hidden" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu flex space-x-4 md:flex md:space-x-4" aria-label="Main navigation">
+                <li><a href="#hero" class="nav-link neon-green">Home</a></li>
+                <li><a href="#skills" class="nav-link neon-green">Skills</a></li>
+                <li><a href="#certificates" class="nav-link neon-green">Certificates</a></li>
+                <li><a href="#portfolio" class="nav-link neon-green">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link neon-green">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Matrix Background Canvas -->
+    <canvas id="matrix-bg" aria-hidden="true"></canvas>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero and About Section -->
+        <section id="hero" class="py-20">
+            <div class="box-container" data-aos="fade-up">
+                <div class="hero-about-container flex flex-col md:flex-row gap-8">
+                    <!-- Hero Box -->
+                    <div class="flex-1 liquid-glass p-6 rounded-lg text-center">
+                        <h1 class="text-5xl font-bold neon-cyan">Junior Cybersecurity Analyst & Junior Penetration Tester</h1>
+                        <p class="text-3xl neon-green mt-2">Aspiring Cybersecurity Analyst</p>
+                        <p id="tagline" class="text-xl mt-4"></p>
+                        <p class="text-lg mt-2 justify-text text-left md:text-justify">Hello, I’m Hein Htet Zaw. I’m a Junior Cyber Security Analyst and Penetration Tester passionate about protecting digital systems and uncovering vulnerabilities before attackers do. Since starting my journey in cyber security, I’ve built hands-on experience in SIEM monitoring, log analysis, vulnerability assessment, and penetration testing using tools like Splunk, Nmap, and Wireshark. I enjoy solving problems, thinking like an attacker, and applying strong analytical skills to strengthen security defenses. Beyond technical skills, I bring teamwork, adaptability, and attention to detail to every project and environment. My goal is to keep learning and growing in the field, while contributing to building safer digital spaces.</p>
+                        <div class="hacker-icon-container">
+                            <i class="fas fa-bug hacker-icon" aria-label="Terminal icon representing cybersecurity expertise"></i>
+                            <div class="cycle-box"></div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="https://drive.google.com/file/d/1FPV4n5ESZEV3UxRPZ6gQCAOuAMhdnyNT/view?usp=sharing" class="bg-neon-green text-white font-bold px-6 py-3 rounded mr-4 transition-all liquid-glass"> Get Resume</a>
+                            <a href="#contact" class="bg-neon-cyan text-white font-bold px-6 py-3 rounded transition-all liquid-glass">Contact Me</a>
+                        </div>
+                    </div>
+                    <!-- About Box -->
+                    <div class="flex-1 liquid-glass p-6 rounded-lg">
+                        <h2 class="text-4xl font-bold neon-cyan mb-6 text-center">About Me</h2>
+                        <div class="avatar-container">
+                            <img src="photo.png" alt="Cyber-themed avatar representing the portfolio owner" loading="lazy">
+                        </div>
+                        <p class="text-lg mt-6 mb-6 justify-text text-left md:text-justify">From 2023 to 2025, I pursued my studies in Cyber Security and IT at GUSTO University, building a strong foundation in networking, operating systems, and security practices. I completed additional courses and training in penetration testing, ethical hacking, and SIEM monitoring to sharpen my technical expertise. Throughout my journey, I have engaged in capture-the-flag challenges, group projects, and security labs that allowed me to apply theory into practice. I also gained hands-on experience working on vulnerability assessments and small freelance security projects, which helped me develop real-world problem-solving skills in the field.</p>
+                        <div class="about-social-links">
+                            <a href="https://www.linkedin.com/in/hein-htet-zaw-342579304/" class="about-social-link liquid-glass" aria-label="LinkedIn profile">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/hein-hte" class="about-social-link liquid-glass" aria-label="GitHub profile">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.facebook.com/hein.htet.zaw.117887" class="about-social-link liquid-glass" aria-label="Facebook profile">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="box-container" data-aos="fade-up">
+                <h2 class="text-4xl font-bold neon-cyan mb-8 text-center">Skills</h2>
+                <div class="space-y-4 max-w-2xl mx-auto">
+                    <div class="skill-bar">
+                        <p>Penetration Testing (Kali Linux, Burp Suite)</p>
+                        <div class="bg-gray-700 h-2 rounded">
+                            <div class="bg-neon-green h-2 rounded w-0" style="width: 70%;" data-width="70"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <p>Network Scanning (Nmap, Wireshark)</p>
+                        <div class="bg-gray-700 h-2 rounded">
+                            <div class="bg-neon-cyan h-2 rounded w-0" style="width: 65%;" data-width="65"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <p>Security Fundamentals (Linux, Cryptography)</p>
+                        <div class="bg-gray-700 h-2 rounded">
+                            <div class="bg-neon-green h-2 rounded w-0" style="width: 60%;" data-width="60"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="py-20">
+            <div class="box-container" data-aos="fade-up">
+                <h2 class="text-4xl font-bold neon-cyan mb-8 text-center">Certificates</h2>
+                <div class="certificate-buttons">
+                    <button class="certificate-button" id="edu-cert-button">Educational Certificates</button>
+                    <button class="certificate-button" id="tech-cert-button">Technical Certificates</button>
+                </div>
+                <div class="certificate-list educational-certificates active" id="edu-cert-list">
+                    <div class="certificate-carousel">
+                        <button class="certificate-arrow left" id="edu-left-arrow" aria-label="Previous educational certificate">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="certificate-item active-certificate">
+                            <h4 class="text-xl neon-green mb-2">University Certificates</h4>
+                            <p>Issuer: <a href="https://www.gusto-education.com/" class="text-neon-cyan underline">Gusto University</a></p>
+                            <img src="ImageForEducational/GUSTOfoundation.jpg" alt="University Cybersecurity Course certificate" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">University Certificates</h4>
+                            <p>Issuer: <a href="https://www.gusto-education.com/" class="text-neon-cyan underline">Gusto University</a></p>
+                            <img src="ImageForEducational/GUSTO_IT_Challenges.jpg" alt="University Cybersecurity Course certificate" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">IT Fundamentals</h4>
+                            <p>Issuer: <a href="https://bimtrainings.com/?fbclid=IwY2xjawMPvNxleHRuA2FlbQIxMABicmlkETFQZWlKd2premh3NmdXTFFZAR4HJpQWILPfIA9Rxc3VAx_iqJY42vNb-0YeKwQwXcrRk43jdmEQ4a7YnOc0uQ_aem_jwrmSTHy8Bi-MS8DozgI8A" class="text-neon-cyan underline">IT Starter</a></p>
+                            <img src="ImageForEducational/BIM.jpg" alt="IT Fundamentals certificate" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <button class="certificate-arrow right" id="edu-right-arrow" aria-label="Next educational certificate">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="certificate-list technical-certificates" id="tech-cert-list">
+                    <div class="certificate-carousel">
+                        <button class="certificate-arrow left" id="tech-left-arrow" aria-label="Previous technical certificate">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="certificate-item active-certificate">
+                            <h4 class="text-xl neon-green mb-2">Certificate From HackerX</h4>
+                            <p>Issuer: <a href="https://apps.apple.com/th/app/hackerx-learn-ethical-hacking/id1542444199" class="text-neon-cyan underline">HackerX</a></p>
+                            <img src="ImageForTechinal/HakerX.jpg" alt="HackerX certificate" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">Certificate From Cybrary</h4>
+                            <p>Issuer: <a href="https://www.cybrary.it/" class="text-neon-cyan underline">Cybrary</a></p>
+                            <img src="ImageForTechinal/cybrary1.jpg" alt="Cybrary certificate 1" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">Certificate From Cybrary</h4>
+                            <p>Issuer: <a href="https://www.cybrary.it/" class="text-neon-cyan underline">Cybrary</a></p>
+                            <img src="ImageForTechinal/cybrary2.jpg" alt="Cybrary certificate 2" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">Certificate From Cybrary</h4>
+                            <p>Issuer: <a href="https://www.cybrary.it/" class="text-neon-cyan underline">Cybrary</a></p>
+                            <img src="ImageForTechinal/cybrary3.jpg" alt="Cybrary certificate 3" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">Certificate From Cybrary</h4>
+                            <p>Issuer: <a href="https://www.cybrary.it/" class="text-neon-cyan underline">Cybrary</a></p>
+                            <img src="ImageForTechinal/cybrary4.jpg" alt="Cybrary certificate 4" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">Certificate From Cybrary</h4>
+                            <p>Issuer: <a href="https://www.cybrary.it/" class="text-neon-cyan underline">Cybrary</a></p>
+                            <img src="ImageForTechinal/cybrary5.jpg" alt="Cybrary certificate 5" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">Certificate From Cybrary</h4>
+                            <p>Issuer: <a href="https://www.cybrary.it/" class="text-neon-cyan underline">Cybrary</a></p>
+                            <img src="ImageForTechinal/cybrary6.jpg" alt="Cybrary certificate 6" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">Certificate From Cybrary</h4>
+                            <p>Issuer: <a href="https://www.cybrary.it/" class="text-neon-cyan underline">Cybrary</a></p>
+                            <img src="ImageForTechinal/cybrary7.jpg" alt="Cybrary certificate 7" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">Certificate From Cybrary</h4>
+                            <p>Issuer: <a href="https://www.cybrary.it/" class="text-neon-cyan underline">Cybrary</a></p>
+                            <img src="ImageForTechinal/cybrary8.jpg" alt="Cybrary certificate 8" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">Certificate From Cybrary</h4>
+                            <p>Issuer: <a href="https://www.cybrary.it/" class="text-neon-cyan underline">Cybrary</a></p>
+                            <img src="ImageForTechinal/cybrary9.jpg" alt="Cybrary certificate 9" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-xl neon-green mb-2">Certificate From Cybrary</h4>
+                            <p>Issuer: <a href="https://www.cybrary.it/" class="text-neon-cyan underline">Cybrary</a></p>
+                            <img src="ImageForTechinal/cybrary10.jpg" alt="Cybrary certificate 10" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <button class="certificate-arrow right" id="tech-right-arrow" aria-label="Next technical certificate">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20">
+            <div class="box-container" data-aos="fade-up">
+                <h2 class="text-4xl font-bold neon-cyan mb-8 text-center">Portfolio</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="project-card liquid-glass p-6 rounded-lg transition-all hover:scale-105">
+                        <h4 class="text-2xl neon-green mb-2">CTF Challenge Solution</h4>
+                        <p><strong>Problem:</strong> Solved a web security challenge in a Capture The Flag event.</p>
+                        <p><strong>Tools:</strong> Burp Suite, Kali Linux</p>
+                        <p><strong>Methodology:</strong> Identified SQL injection vulnerability and retrieved hidden flag.</p>
+                        <p><strong>Outcome:</strong> Successfully completed challenge, ranking in top 10%.</p>
+                        <a href="https://github.com/cyberfresher/ctf-solution" class="text-neon-cyan underline">View on GitHub</a>
+                        <img src="https://via.placeholder.com/300x150.webp?text=CTF+Solution" alt="Screenshot of CTF challenge solution" loading="lazy" class="mt-4 rounded">
+                    </div>
+                    <div class="project-card liquid-glass p-6 rounded-lg transition-all hover:scale-105">
+                        <h4 class="text-2xl neon-green mb-2">Network Scanning Script</h4>
+                        <p><strong>Problem:</strong> Needed to automate network reconnaissance for a lab project.</p>
+                        <p><strong>Tools:</strong> Python, Nmap</p>
+                        <p><strong>Methodology:</strong> Wrote a script to scan for open ports and services.</p>
+                        <p><strong>Outcome:</strong> Generated detailed network report, improving lab efficiency.</p>
+                        <a href="https://github.com/cyberfresher/nmap-script" class="text-neon-cyan underline">View on GitHub</a>
+                        <img src="https://via.placeholder.com/300x150.webp?text=Network+Scan" alt="Screenshot of network scan output" loading="lazy" class="mt-4 rounded">
+                    </div>
+                    <div class="project-card liquid-glass p-6 rounded-lg transition-all hover:scale-105">
+                        <h4 class="text-2xl neon-green mb-2">Packet Analysis Lab</h4>
+                        <p><strong>Problem:</strong> Analyzed network traffic for a university project.</p>
+                        <p><strong>Tools:</strong> Wireshark</p>
+                        <p><strong>Methodology:</strong> Captured and analyzed HTTP traffic to identify anomalies.</p>
+                        <p><strong>Outcome:</strong> Detected suspicious requests, earning top project grade.</p>
+                        <a href="https://github.com/cyberfresher/packet-analysis" class="text-neon-cyan underline">View on GitHub</a>
+                        <img src="https://via.placeholder.com/300x150.webp?text=Packet+Analysis" alt="Screenshot of Wireshark analysis" loading="lazy" class="mt-4 rounded">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="box-container" data-aos="fade-up">
+                <h2 class="text-4xl font-bold neon-cyan mb-8 text-center">Contact Me</h2>
+                
+                <form id="contact-form" action="https://formspree.io/f/xqalogbl" 
+                method="POST" class="max-w-lg mx-auto space-y-4">
+                <input type="hidden" name="_subject" value="New Contact Form Submission">
+                <input type="hidden" name="_next" value="https://www.linkedin.com/feed/">
+                <input type="text" id="name" name="name" placeholder="Name" class="w-full p-3 bg-gray-800 rounded liquid-glass" required aria-label="Your name">
+                <input type="email" id="email" name="email" placeholder="Email" class="w-full p-3 bg-gray-800 rounded liquid-glass" required aria-label="Your email">
+                <textarea id="message" name="message" placeholder="Message" class="w-full p-3 bg-gray-800 rounded h-32 liquid-glass" required aria-label="Your message"></textarea>
+                <button type="submit" class="bg-neon-green text-black px-6 py-3 rounded w-full transition-all liquid-glass">Send Message</button>
+                </form>
+
+                <div class="mt-8 flex justify-center space-x-6">
+                    <a href="mailto:cyberfresher@example.com" class="text-3xl neon-cyan transition-all hover:scale-125" aria-label="Email the portfolio owner"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/cyberfresher" class="text-3xl neon-cyan transition-all hover:scale-125" aria-label="LinkedIn profile"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/cyberfresher" class="text-3xl neon-cyan transition-all hover:scale-125" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
+                    <a href="https://twitter.com/cyberfresher" class="text-3xl neon-cyan transition-all hover:scale-125" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="mt-8">
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d61998.89118739832!2d100.57003954136682!3d13.783051134172258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sth!4v1755512928150!5m2!1sen!2sth" width="1100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <a href="https://drive.google.com/file/d/1FPV4n5ESZEV3UxRPZ6gQCAOuAMhdnyNT/view?usp=sharing" class="block mt-4 text-center text-neon-cyan underline" download aria-label="Download resume (PDF)">Download Resume (PDF)</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center">
+        <div class="box-container">
+            <p class="text-sm">© 2025 Cybersecurity Portfolio. All rights reserved. This site uses encrypted forms for secure communication.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize EmailJS
+        emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your EmailJS user ID
+
+        // Initialize AOS
+        AOS.init();
+
+        // Animated Typing Effect for Tagline
+        const tagline = "Learning to secure the digital world";
+        let i = 0;
+        function typeWriter() {
+            if (i < tagline.length) {
+                document.getElementById("tagline").innerHTML += tagline.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+        typeWriter();
+
+        // Animated Progress Bars with GSAP
+        document.querySelectorAll('.skill-bar div div').forEach(bar => {
+            gsap.to(bar, { width: `${bar.dataset.width}%`, duration: 2, ease: "power2.out" });
+        });
+
+        
+        // Matrix Digital Rain Effect
+        // Matrix Digital Rain Effect
+const canvas = document.getElementById('matrix-bg');
+const ctx = canvas.getContext('2d');
+
+// Ensure canvas exists before proceeding
+if (canvas && ctx) {
+    // Initialize canvas dimensions
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+
+    const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+    const fontSize = 16;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(0); // Initialize drops at top (0)
+    let frameCounter = 0; // Control animation speed
+
+    function drawMatrix() {
+        // Fade effect with slightly stronger opacity for visibility
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#00ff00';
+        ctx.font = `${fontSize}px monospace`;
+
+        // Update drops every 3 frames to slow down animation
+        frameCounter++;
+        if (frameCounter % 3 === 0) {
+            drops.forEach((y, i) => {
+                const text = matrix[Math.floor(Math.random() * matrix.length)];
+                ctx.fillText(text, i * fontSize, Math.floor(y) * fontSize);
+
+                // Reset drop to top when it reaches bottom
+                if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i] += 0.5; // Slower increment (half speed)
+            });
+        }
+    }
+
+    // Use requestAnimationFrame for smooth animation
+    function animateMatrix() {
+        drawMatrix();
+        requestAnimationFrame(animateMatrix);
+    }
+
+    // Start animation after DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        resizeCanvas();
+        animateMatrix();
+    });
+
+    // Resize canvas on window resize
+    window.addEventListener('resize', () => {
+        resizeCanvas();
+        // Recalculate columns and reinitialize drops
+        const newColumns = Math.floor(canvas.width / fontSize);
+        drops.length = newColumns;
+        drops.fill(0);
+    });
+} else {
+    console.error('Canvas or context not found.');
+}
+
+      
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navbarMenu = document.querySelector('.navbar-menu');
+        hamburger.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+            hamburger.innerHTML = navbarMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Certificate Carousel Navigation
+        const eduCertButton = document.getElementById('edu-cert-button');
+        const techCertButton = document.getElementById('tech-cert-button');
+        const eduCertList = document.getElementById('edu-cert-list');
+        const techCertList = document.getElementById('tech-cert-list');
+        const eduLeftArrow = document.getElementById('edu-left-arrow');
+        const eduRightArrow = document.getElementById('edu-right-arrow');
+        const techLeftArrow = document.getElementById('tech-left-arrow');
+        const techRightArrow = document.getElementById('tech-right-arrow');
+
+        let eduCertIndex = 0;
+        let techCertIndex = 0;
+
+        function updateCarousel(listId, index, itemsSelector) {
+            const items = document.querySelectorAll(`#${listId} .certificate-item`);
+            items.forEach((item, i) => {
+                item.classList.toggle('active-certificate', i === index);
+            });
+        }
+
+        // Initialize carousels
+        updateCarousel('edu-cert-list', eduCertIndex, '.certificate-item');
+        updateCarousel('tech-cert-list', techCertIndex, '.certificate-item');
+
+        // Educational Certificates Navigation
+        eduLeftArrow.addEventListener('click', () => {
+            const items = document.querySelectorAll('#edu-cert-list .certificate-item');
+            eduCertIndex = (eduCertIndex - 1 + items.length) % items.length;
+            updateCarousel('edu-cert-list', eduCertIndex);
+        });
+
+        eduRightArrow.addEventListener('click', () => {
+            const items = document.querySelectorAll('#edu-cert-list .certificate-item');
+            eduCertIndex = (eduCertIndex + 1) % items.length;
+            updateCarousel('edu-cert-list', eduCertIndex);
+        });
+
+        // Technical Certificates Navigation
+        techLeftArrow.addEventListener('click', () => {
+            const items = document.querySelectorAll('#tech-cert-list .certificate-item');
+            techCertIndex = (techCertIndex - 1 + items.length) % items.length;
+            updateCarousel('tech-cert-list', techCertIndex);
+        });
+
+        techRightArrow.addEventListener('click', () => {
+            const items = document.querySelectorAll('#tech-cert-list .certificate-item');
+            techCertIndex = (techCertIndex + 1) % items.length;
+            updateCarousel('tech-cert-list', techCertIndex);
+        });
+
+        // Certificate List Toggle
+        eduCertList.classList.add('active');
+        eduCertButton.addEventListener('click', () => {
+            eduCertList.classList.add('active');
+            techCertList.classList.remove('active');
+            updateCarousel('edu-cert-list', eduCertIndex);
+        });
+
+        techCertButton.addEventListener('click', () => {
+            techCertList.classList.add('active');
+            eduCertList.classList.remove('active');
+            updateCarousel('tech-cert-list', techCertIndex);
+        });
+
+        // Contact Form Submission with EmailJS
+        const form = document.getElementById('contact-form');
+    form.addEventListener('submit', (e) => {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Input validation
+    if (!/^[a-zA-Z\s]+$/.test(name)) {
+        e.preventDefault();
+        alert('Please enter a valid name (letters and spaces only).');
+        return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        e.preventDefault();
+        alert('Please enter a valid email address.');
+        return;
+    }
+    if (message.length === 0) {
+        e.preventDefault();
+        alert('Please enter a message.');
+        return;
+    }
+
+    // Show success message (Formspree handles email sending)
+    alert('Submitting your message... You will receive a confirmation soon.');
+    });
+    </script>
+</body>
+</html>
