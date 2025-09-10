@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silky Glass Text Preview</title>
+    <style>
+        .silky-glass-text {
+    color: transparent;
+    background: linear-gradient(135deg, #F0F8FF, #E0FFFF, #ADD8E6); /* Soft gradient: AliceBlue to LightCyan to LightBlue */
+    background-clip: text;
+    text-shadow: 
+        1px 1px 2px rgba(255, 255, 255, 0.5), /* Top-left highlight for 3D */
+        -1px -1px 2px rgba(255, 255, 255, 0.3), /* Bottom-right shadow for depth */
+        0 0 8px rgba(173, 216, 230, 0.7), /* Inner silky glow */
+        0 0 15px rgba(173, 216, 230, 0.4); /* Outer glossy reflection */
+    backdrop-filter: blur(4px); /* Enhanced silky blur */
+    -webkit-backdrop-filter: blur(4px); /* Safari support */
+    font-weight: 700; /* Bold for prominence */
+    font-size: 3rem;
+    letter-spacing: 1px; /* Smooth flow */
+    transform: perspective(500px) rotateX(15deg); /* 3D tilt for glassy effect */
+    position: relative;
+    animation: silky-gloss 3s infinite ease-in-out; /* Gentle glossy pulse */
+}
+
+@keyframes silky-gloss {
+    0% { text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.3), 0 0 8px rgba(173, 216, 230, 0.7), 0 0 15px rgba(173, 216, 230, 0.4); }
+    50% { text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6), -1px -1px 3px rgba(255, 255, 255, 0.4), 0 0 10px rgba(173, 216, 230, 0.8), 0 0 20px rgba(173, 216, 230, 0.5); }
+    100% { text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.3), 0 0 8px rgba(173, 216, 230, 0.7), 0 0 15px rgba(173, 216, 230, 0.4); }
+}
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #1C2526, #000); /* Subtle gradient for blur */
+        }
+        .silky-glass-text {
+            color: transparent;
+            background: linear-gradient(135deg, #F0F8FF, #E0FFFF, #ADD8E6);
+            background-clip: text;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.3), 0 0 8px rgba(173, 216, 230, 0.7), 0 0 15px rgba(173, 216, 230, 0.4);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            font-weight: 700;
+            font-size: 3rem;
+            letter-spacing: 1px;
+            transform: perspective(500px) rotateX(15deg);
+            position: relative;
+            animation: silky-gloss 3s infinite ease-in-out;
+        }
+        @keyframes silky-gloss {
+            0% { text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.3), 0 0 8px rgba(173, 216, 230, 0.7), 0 0 15px rgba(173, 216, 230, 0.4); }
+            50% { text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6), -1px -1px 3px rgba(255, 255, 255, 0.4), 0 0 10px rgba(173, 216, 230, 0.8), 0 0 20px rgba(173, 216, 230, 0.5); }
+            100% { text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5), -1px -1px 2px rgba(255, 255, 255, 0.3), 0 0 8px rgba(173, 216, 230, 0.7), 0 0 15px rgba(173, 216, 230, 0.4); }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="silky-glass-text">Silky Glass Text Effect</h1>
+</body>
+</html>

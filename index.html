@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Entry-level cybersecurity portfolio showcasing foundational skills, certifications, and projects in ethical hacking and network security.">
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Cybersecurity Portfolio - Fresher">
+    <meta property="og:title" content="Portfolio By Hein Htet Zaw">
     <meta property="og:description" content="Explore my journey as a cybersecurity enthusiast with certifications and projects in penetration testing and network defense.">
     <meta property="og:image" content="https://via.placeholder.com/1200x630.webp?text=Cybersecurity+Portfolio">
     <meta property="og:url" content="https://cyberfresher.io">
@@ -153,9 +153,10 @@
             transform: translate(-50%, -50%);
             width: 120px;
             height: 120px;
-            border: 2px solid #cc1032;
+            border: 2px solid transparent;
+            border-image: linear-gradient(145deg, #C0C0C0, #A9A9A9) 1;
             border-radius: 50%;
-            box-shadow: 0 0 10px #0404f6, 0 0 20px #0e07e4;
+            box-shadow: 0 0 10px #D3D3D3, 0 0 20px #D3D3D3;
             animation: rotate 10s infinite linear;
         }
         @keyframes pulse {
@@ -177,8 +178,10 @@
             overflow: hidden;
             position: relative;
             margin: 0 auto;
-            border: 3px solid #3c07e9;
-            box-shadow: 0 0 10px #e65907;
+            border: 3px solid transparent;
+            border-image: linear-gradient(145deg, #C0C0C0, #A9A9A9) 1;
+            box-shadow: 0 0 10px #D3D3D3, inset 0 0 10px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
             animation: glow 2s infinite ease-in-out;
         }
         .avatar-container img {
@@ -187,9 +190,9 @@
             object-fit: cover;
         }
         @keyframes glow {
-            0% { box-shadow: 0 0 10px #e87408; }
-            50% { box-shadow: 0 0 20px #eae7e7, 0 0 30px #00ff00; }
-            100% { box-shadow: 0 0 10px #00ff00; }
+            0% { box-shadow: 0 0 10px #D3D3D3, inset 0 0 10px rgba(255, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 20px #D3D3D3, 0 0 30px #C0C0C0, inset 0 0 15px rgba(255, 255, 255, 0.4); }
+            100% { box-shadow: 0 0 10px #D3D3D3, inset 0 0 10px rgba(255, 255, 255, 0.3); }
         }
         #back-to-top {
             position: fixed;
@@ -394,8 +397,8 @@
                 height: 60px;
             }
             .avatar-container {
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
             }
             .certificate-buttons, .skill-buttons {
                 flex-direction: column;
@@ -633,6 +636,11 @@
                             <h4 class="text-lg md:text-xl neon-green mb-2">Certificate From HackerX</h4>
                             <p>Issuer: <a href="https://apps.apple.com/th/app/hackerx-learn-ethical-hacking/id1542444199" class="text-neon-cyan underline">HackerX</a></p>
                             <img src="ImageForTechinal/HakerX.jpg" alt="HackerX certificate" loading="lazy" class="mt-2 rounded">
+                        </div>
+                        <div class="certificate-item">
+                            <h4 class="text-lg md:text-xl neon-green mb-2">Certificate From Amazon AWS</h4>
+                            <p>Issuer: <a href="https://aws.amazon.com/" class="text-neon-cyan underline"> Amazon AWS </a></p>
+                            <img src="ImageForTechinal/aws.jpg" alt="Cybrary certificate 1" loading="lazy" class="mt-2 rounded">
                         </div>
                         <div class="certificate-item">
                             <h4 class="text-lg md:text-xl neon-green mb-2">Certificate From Cybrary</h4>
